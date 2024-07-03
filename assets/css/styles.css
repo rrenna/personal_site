@@ -497,6 +497,22 @@ img {
   font-weight: var(--font-medium);
 }
 
+.skills__link {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+}
+
+.skills__link:link {
+  color: var(--text-color-light);
+}
+
+.skills__link:visited {
+  color: var(--text-color-light);
+}
+
+.skills__link:active {
+  color: var(--text-color-light);
+}
 
 .skills__bar,
 .skills__percantage{
@@ -589,6 +605,14 @@ img {
   font-size: var(--small-font-size);
   margin-bottom: var(--mb-1);
 }
+
+.qualification__link:link {
+  display: inline-block;
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-1);
+  color: var(--first-color);
+}
+
 .qualification__degree{
   display: inline-block;
   font-size: var(--smaller-font-size);
