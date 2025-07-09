@@ -367,6 +367,10 @@ body:has(.offblast-back[style*="display: block"]) .header {
   font-weight: var(--font-medium);
 }
 
+.home__link:visited {
+  color: var(--first-color);
+}
+
 .home__link:hover {
   color: var(--first-color-alt);
 }
@@ -716,6 +720,10 @@ body:has(.offblast-back[style*="display: block"]) .header {
   border-radius: .25rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
   transition: .3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
 }
 
 .projects__content:hover{
