@@ -335,6 +335,17 @@ body:has(.offblast-back[style*="display: block"]) .header {
 .home__blob{
   width: 200px;
   fill: var(--first-color);
+  position: relative;
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 20px hsla(var(--hue-color), 89%, 60%, 0.5));
+  }
 }
 
 .home__blob-img{
@@ -412,16 +423,18 @@ body:has(.offblast-back[style*="display: block"]) .header {
   padding: 1rem;
   border-radius: .5rem;
   font-weight: var(--font-medium);
+  transition: all 0.3s ease;
 }
 
 .button:hover{
   background-color: var(--first-color-alt);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .button__icon{
   font-size: 1.25rem;
   margin-left: var(--mb-0-5);
-  transition: .3s;
 }
 
 .button--white{
@@ -461,6 +474,12 @@ body:has(.offblast-back[style*="display: block"]) .header {
   border-radius: .5rem;
   justify-self: center;
   align-self: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about__img:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about__description{
@@ -498,7 +517,11 @@ body:has(.offblast-back[style*="display: block"]) .header {
 }
 /*==================== SKILLS ====================*/
 .skills__container{
-  row-gap: 0;
+  row-gap: 2rem;
+}
+
+.skills__content{
+  margin-bottom: var(--mb-1-5);
 }
 
 .skills__header{
@@ -506,12 +529,26 @@ body:has(.offblast-back[style*="display: block"]) .header {
   align-items: center;
   /* margin-bottom: var(--mb-2-5); */
   cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  border-radius: 0.5rem;
+}
+
+.skills__header:hover{
+  transform: translateX(10px);
+  background-color: hsla(var(--hue-color), 95%, 51%, 0.1);
 }
 
 .skills__icon,
 .skills__arrow{
   font-size: 2rem;
   color: var(--first-color);
+  transition: transform 0.3s ease;
+}
+
+.skills__header:hover .skills__icon{
+  transform: rotate(5deg) scale(1.1);
 }
 
 
@@ -577,18 +614,45 @@ body:has(.offblast-back[style*="display: block"]) .header {
 .skills__percantage{
   display: block;
   background-color: var(--first-color);
+  width: 0;
+  transition: width 1.5s ease-out;
 }
 
-.skills__sys-code{
-  width: 100%;
+.skills__close .skills__percantage {
+  animation: none;
+  width: 0;
 }
 
-.skills__80{
-  width: 80%;
+.skills__open .skills__sys-code{
+  animation: skillsAnimation100 1.5s ease-out forwards;
 }
 
-.skills__60{
-  width: 60%;
+.skills__open .skills__80{
+  animation: skillsAnimation80 1.5s ease-out forwards;
+}
+
+.skills__open .skills__60{
+  animation: skillsAnimation60 1.5s ease-out forwards;
+}
+
+/* Add staggered animation delays */
+.skills__open .skills__data:nth-child(1) .skills__percantage { animation-delay: 0.1s; }
+.skills__open .skills__data:nth-child(2) .skills__percantage { animation-delay: 0.2s; }
+.skills__open .skills__data:nth-child(3) .skills__percantage { animation-delay: 0.3s; }
+.skills__open .skills__data:nth-child(4) .skills__percantage { animation-delay: 0.4s; }
+.skills__open .skills__data:nth-child(5) .skills__percantage { animation-delay: 0.5s; }
+.skills__open .skills__data:nth-child(6) .skills__percantage { animation-delay: 0.6s; }
+
+@keyframes skillsAnimation100 {
+  to { width: 100%; }
+}
+
+@keyframes skillsAnimation80 {
+  to { width: 80%; }
+}
+
+@keyframes skillsAnimation60 {
+  to { width: 60%; }
 }
 
 .skills__40{
@@ -607,10 +671,11 @@ body:has(.offblast-back[style*="display: block"]) .header {
 .skills__open .skills__list{
   height: max-content;
   margin-bottom: var(--mb-2-5);
+  padding-top: var(--mb-1-5);
 }
 
 .skills__open .skills__arrow{
-  transform: rotate(-180deg);
+  transform: rotate(180deg);
 }
 
 
@@ -748,9 +813,6 @@ body:has(.offblast-back[style*="display: block"]) .header {
   font-size: var(--small-font-size);
 }
 
-.projects__button:hover .button__icon{
-  transform: translateX(.25rem);
-}
 
 .projects__modal{
   position: fixed;
@@ -758,15 +820,15 @@ body:has(.offblast-back[style*="display: block"]) .header {
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
   background-color: rgba(0, 0, 0, .5);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
   z-index: var(--z-modal);
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
+  padding: 0 1rem;
 }
 
 .projects__modal-content{
@@ -1031,12 +1093,22 @@ body:has(.offblast-back[style*="display: block"]) .header {
 .contact__information{
   display: flex;
   margin-bottom: var(--mb-2);
+  transition: transform 0.3s ease;
+}
+
+.contact__information:hover{
+  transform: translateX(5px);
+}
+
+.contact__information:hover .contact__icon{
+  transform: scale(1.2);
 }
 
 .contact__icon{
   font-size: 2rem;
   color: var(--first-color);
   margin-right: var(--mb-0-75);
+  transition: transform 0.3s ease;
 }
 
 .contact__title{
@@ -1097,6 +1169,17 @@ body:has(.offblast-back[style*="display: block"]) .header {
 
 .footer__subtitle{
   font-size: var(--small-font-size);
+}
+
+#typed-text::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: var(--first-color);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .footer__links{

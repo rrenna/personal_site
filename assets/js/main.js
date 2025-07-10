@@ -1,3 +1,6 @@
+/*==================== WAIT FOR DOM TO LOAD ====================*/
+document.addEventListener('DOMContentLoaded', function() {
+    
 /*==================== CHECK FOR OFFBLAST PARAMETER ====================*/
 // Check if user is coming from Offblast Softworks
 const urlParams = new URLSearchParams(window.location.search);
@@ -48,7 +51,7 @@ const skillsContent = document.getElementsByClassName('skills__content'),
 function toggleSkills(){
     let itemClass = this.parentNode.className
 
-    for(i = 0; i < skillsContent.length; i++){
+    for(let i = 0; i < skillsContent.length; i++){
         skillsContent[i].className = 'skills__content skills__close'
     }
 
@@ -274,3 +277,42 @@ function SendMail(){
         swal("Success!", "Your message has been sent!", "success");
     })
 }
+
+/*==================== TYPING ANIMATION ====================*/
+const typedTextSpan = document.getElementById("typed-text");
+const textArray = ["App Ninja", "App Wizard", "App Magician", "App Guru", "App Architect", "App Artisan", "App Alchemist", "App Virtuoso", "App Maestro", "App Sage"];
+const typingDelay = 100;
+const erasingDelay = 50;
+const newTextDelay = 2000; // Delay between current and next text
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+    if (charIndex < textArray[textArrayIndex].length) {
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+    } else {
+        setTimeout(erase, newTextDelay);
+    }
+}
+
+function erase() {
+    if (charIndex > 0) {
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+    } else {
+        textArrayIndex++;
+        if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+        setTimeout(type, typingDelay + 500);
+    }
+}
+
+// Start the typing effect
+if (typedTextSpan) {
+    typedTextSpan.textContent = "";
+    setTimeout(type, newTextDelay);
+}
+
+}); // End of DOMContentLoaded

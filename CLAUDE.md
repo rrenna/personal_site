@@ -4,35 +4,42 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is Ryan Renna's personal portfolio website - a static site showcasing iOS development skills and projects. The site is hosted on GitHub Pages at www.ryanrenna.com.
+This is Ryan Renna's personal portfolio website - a static site showcasing iOS development skills and projects. The site is built with Vite and hosted on Netlify at www.ryanrenna.com.
 
 ## Tech Stack
 
-- **Frontend**: Vanilla HTML, CSS, JavaScript (no frameworks or build tools)
+- **Frontend**: Vanilla HTML, CSS, JavaScript
+- **Build Tool**: Vite
 - **External Libraries**: 
   - Swiper.js (testimonial carousel)
   - EmailJS (contact form)
   - SweetAlert (notifications)
   - Unicons (icon library)
-- **Hosting**: GitHub Pages with custom domain
+- **Hosting**: Netlify
 
 ## Commands
 
-Since this is a static site with no build process:
-
-- **Run locally**: Open `index.html` in a web browser or use a local server:
+- **Install dependencies**: 
   ```bash
-  # Python 3
-  python -m http.server 8000
-  
-  # Python 2
-  python -m SimpleHTTPServer 8000
-  
-  # Node.js (if http-server is installed globally)
-  http-server
+  npm install
   ```
 
-- **Deploy**: Push changes to GitHub main branch (auto-deploys via GitHub Pages)
+- **Run development server**: 
+  ```bash
+  npm run dev
+  ```
+
+- **Build for production**: 
+  ```bash
+  npm run build
+  ```
+
+- **Preview production build**: 
+  ```bash
+  npm run preview
+  ```
+
+- **Deploy**: Push changes to GitHub main branch (auto-deploys via Netlify)
 
 ## Architecture
 
