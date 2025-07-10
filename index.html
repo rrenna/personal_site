@@ -8,10 +8,21 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         
         <!--==================== SWIPER CSS ====================-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
         
         <!--==================== CSS ====================-->
-        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+
+        <!--==================== THEME RESTORATION ====================-->
+        <script>
+            // Apply saved theme immediately to prevent flash
+            (function() {
+                const selectedTheme = localStorage.getItem('selected-theme');
+                if (selectedTheme === 'dark') {
+                    document.body.classList.add('dark-theme');
+                }
+            })();
+        </script>
 
         <!--==================== EMAIL SERVICE ====================-->
         <!-- Sweet Alert -->
@@ -1147,7 +1158,7 @@
         </a>
 
         <!--==================== SWIPER JS ====================-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="/assets/js/swiper-bundle.min.js"></script>
 
         <!--==================== MAIN JS ====================-->
         <script type="module" src="/assets/js/main.js"></script>
