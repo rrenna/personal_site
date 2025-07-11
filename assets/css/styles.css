@@ -296,6 +296,17 @@ body:has(.offblast-back[style*="display: block"]) .header {
   bottom: 0;
 }
 
+/* Fix nav menu position when offblast back is shown */
+@media screen and (max-width: 767px) {
+  body:has(.offblast-back[style*="display: block"]) .nav__menu {
+    bottom: -100%;
+  }
+  
+  body:has(.offblast-back[style*="display: block"]) .nav__menu.show-menu {
+    bottom: 0;
+  }
+}
+
 /* Active link */
 .active-link{
   color: var(--first-color);
