@@ -135,40 +135,6 @@ img {
   height: auto;
 }
 
-/*==================== OFFBLAST BACK LINK ====================*/
-.offblast-back {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--container-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
-  z-index: var(--z-fixed);
-  padding: .5rem 0;
-}
-
-.offblast-back__link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--first-color);
-  font-size: var(--small-font-size);
-  font-weight: var(--font-medium);
-  gap: .5rem;
-  transition: .3s;
-}
-
-.offblast-back__link:hover {
-  gap: .75rem;
-}
-
-.offblast-back__link i {
-  font-size: 1.1rem;
-}
-
-/* Adjust header position when offblast back is shown */
-body:has(.offblast-back[style*="display: block"]) .header {
-  top: 2.5rem;
-}
 
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
@@ -296,16 +262,6 @@ body:has(.offblast-back[style*="display: block"]) .header {
   bottom: 0;
 }
 
-/* Fix nav menu position when offblast back is shown */
-@media screen and (max-width: 767px) {
-  body:has(.offblast-back[style*="display: block"]) .nav__menu {
-    bottom: -100%;
-  }
-  
-  body:has(.offblast-back[style*="display: block"]) .nav__menu.show-menu {
-    bottom: 0;
-  }
-}
 
 /* Active link */
 .active-link{

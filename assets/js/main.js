@@ -1,23 +1,6 @@
 /*==================== WAIT FOR DOM TO LOAD ====================*/
 document.addEventListener('DOMContentLoaded', function() {
     
-/*==================== CHECK FOR OFFBLAST PARAMETER ====================*/
-// Check if user is coming from Offblast Softworks
-const urlParams = new URLSearchParams(window.location.search);
-const fromOffblast = urlParams.get('from') === 'offblast';
-
-if (fromOffblast) {
-    const offblastBack = document.getElementById('offblast-back');
-    if (offblastBack) {
-        offblastBack.style.display = 'block';
-    }
-    
-    // Ensure navigation menu is properly hidden on mobile when coming from offblast
-    const navMenu = document.getElementById('nav-menu');
-    if (navMenu && window.innerWidth <= 767) {
-        navMenu.classList.remove('show-menu');
-    }
-}
 
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById('nav-menu'),
