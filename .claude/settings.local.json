@@ -9,7 +9,8 @@
       "Bash(npm install)",
       "Bash(npm run build:*)",
       "Bash(cp:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "WebFetch(domain:www.linkedin.com)"
     ],
     "deny": []
   }
