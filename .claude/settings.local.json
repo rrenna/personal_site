@@ -17,7 +17,10 @@
       "Bash(python3:*)",
       "Bash(brew install:*)",
       "Bash(gs:*)",
-      "Bash(pip3 install:*)"
+      "Bash(pip3 install:*)",
+      "Bash(md5:*)",
+      "Bash(curl:*)",
+      "Bash(git fetch:*)"
     ],
     "deny": []
   }
