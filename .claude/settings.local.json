@@ -20,7 +20,8 @@
       "Bash(pip3 install:*)",
       "Bash(md5:*)",
       "Bash(curl:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(git remote set-url:*)"
     ],
     "deny": []
   }
