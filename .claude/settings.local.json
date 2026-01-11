@@ -10,7 +10,14 @@
       "Bash(npm run build:*)",
       "Bash(cp:*)",
       "Bash(rm:*)",
-      "WebFetch(domain:www.linkedin.com)"
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(pdfinfo:*)",
+      "Bash(mdls:*)",
+      "Bash(brew list:*)",
+      "Bash(python3:*)",
+      "Bash(brew install:*)",
+      "Bash(gs:*)",
+      "Bash(pip3 install:*)"
     ],
     "deny": []
   }
